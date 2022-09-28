@@ -53,7 +53,9 @@ if (params && params == "confirm") {
         ]
       }
     })
-if (generate) {
+    return
+  }
+  if (generate) {
     //deduct points
     points.add(-2)
     var withdraw = Libs.ResourcesLib.anotherUserRes("Withdraw", "global")
@@ -67,20 +69,20 @@ if (generate) {
         generate.password,
       parse_mode: "markdown"
     })
+    return
   }
-  return
-}
-//exchange
-var inline = [
-  [
-    { text: "Confirm", callback_data: "/netflixex confirm" },
-    { text: "Cancel", callback_data: "/netflixex cancel" }
+  //exchange
+  var inline = [
+    [
+      { text: "Confirm", callback_data: "/netflixex confirm" },
+      { text: "Cancel", callback_data: "/netflixex cancel" }
+    ]
   ]
-]
-Api.editMessageText({
-  message_id: request.message.message_id,
-  text:
-    "🎁 For Exchange Points to Netflix Account :-\n🖲Please Click on Comfirm",
-  parse_mode: "markdown",
-  reply_markup: { inline_keyboard: inline }
-})
+  Api.editMessageText({
+    message_id: request.message.message_id,
+    text:
+      "🎁 For Exchange Points to Netflix Account :-\n🖲Please Click on Comfirm",
+    parse_mode: "markdown",
+    reply_markup: { inline_keyboard: inline }
+  })
+}
