@@ -53,7 +53,7 @@ if (params && params == "confirm") {
         ]
       }
     })
-  } else {
+if (generate) {
     //deduct points
     points.add(-2)
     var withdraw = Libs.ResourcesLib.anotherUserRes("Withdraw", "global")
