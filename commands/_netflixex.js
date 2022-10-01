@@ -9,12 +9,29 @@
   aliases: 
 CMD*/
 
+//exchange
+if (!params) {
+  var inline = [
+    [
+      { text: "Confirm", callback_data: "/netflixex confirm" },
+      { text: "Cancel", callback_data: "/netflixex cancel" }
+    ]
+  ]
+  Api.editMessageText({
+    message_id: request.message.message_id,
+    text:
+      "🎁 For Exchange Points to Netflix Account :-\n🖲Please Click on Comfirm",
+    parse_mode: "markdown",
+    reply_markup: { inline_keyboard: inline }
+  })
+}
+//points
 var points = Libs.ResourcesLib.userRes("points")
 //cancel
 if (params && params == "cancel") {
   var text =
     "*📨You Can Exchange Your Point to Many Premium Accounts.\n\n 💰 Your Balance: " +
-    points.value() +
+    points.value().toFixed(1) +
     " Points.\n\n🔄 Exchange Point to ~\n👉Netflix Account [ 2 Point ].*"
   var buttons = [[{ text: "Netflix", callback_data: "/netflixex" }]]
   Api.editMessageText({
@@ -63,26 +80,13 @@ if (params && params == "confirm") {
     Api.editMessageText({
       message_id: request.message.message_id,
       text:
-        "Generated Account\nEmail : " +
+        "Generated Account\nEmail : `" +
         generate.email +
-        "\nPassword : " +
-        generate.password,
+        "`\nPassword : `" +
+        generate.password +
+        "`",
       parse_mode: "markdown"
     })
     return
   }
-  //exchange
-  var inline = [
-    [
-      { text: "Confirm", callback_data: "/netflixex confirm" },
-      { text: "Cancel", callback_data: "/netflixex cancel" }
-    ]
-  ]
-  Api.editMessageText({
-    message_id: request.message.message_id,
-    text:
-      "🎁 For Exchange Points to Netflix Account :-\n🖲Please Click on Comfirm",
-    parse_mode: "markdown",
-    reply_markup: { inline_keyboard: inline }
-  })
 }

@@ -22,6 +22,10 @@ Api.editMessageText({
 })
 Bot.run({
   command: "/replying",
-  options: { user: params.split("₱¢")[0], question: params.split("₱¢")[1],del:request.message.message_id }
+  options: {
+    user: params.split("₱¢")[0],
+    question: params.split("₱¢")[1],
+    del: request.message.message_id
+  }
 })
 

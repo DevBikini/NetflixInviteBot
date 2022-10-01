@@ -12,9 +12,8 @@ CMD*/
 var points = Libs.ResourcesLib.userRes("points")
 var text =
   "*📨You Can Exchange Your Point to Many Premium Accounts.\n\n 💰 Your Balance: " +
-  points.value() +
+  points.value().toFixed(1) +
   " Points.\n\n🔄 Exchange Point to ~\n👉Netflix Account [ 2 Point ].*"
 var buttons = [[{ title: "Netflix", command: "/netflixex" }]]
-
 Bot.sendInlineKeyboard(buttons, text)
 

@@ -15,7 +15,19 @@ CMD*/
 if (chat.chat_type != "private") {
   return
 }
-function doAtractedByUser() {}
+var points = Libs.ResourcesLib.userRes("points")
+var button =
+  "🤑 Balance : " +
+  points.value().toFixed(1) +
+  " Points,🎁 Daily Check-in\n 💲 Withdraw\n👤 Ref and Earn,📈 Statistics\n📞 Support"
+var welcome_msg = "welcome"
+var amount = 1
+var joinRef = "🎁 Congrats, your referral join all channel you earned 1 Points"
+var newRef =
+  "*👥 New Refferal\n\nYou Get Your Points When Your Referral Join all Channels*"
+function doAtractedByUser(refer) {
+  Bot.sendMessageToChatWithId(refer.id, newRef)
+}
 var trackOptions = {
   onAtractedByUser: doAtractedByUser
 }
@@ -32,14 +44,11 @@ if (!ont) {
       "points",
       referrer.telegramid
     )
-    var amount = 1
     referrerRes.add(+amount)
+    Bot.sendMessageToChatWithId(referrer.telegramid, joinRef)
   }
+  Bot.sendKeyboard(button, welcome_msg)
+  return
 }
-var points = Libs.ResourcesLib.userRes("points")
-var button =
-  "🤑 Balance : " +
-  points.value() +
-  " Points,🎁 Daily Check-in\n 💲 Withdraw\n👤 Ref and Earn,📈 Statistics\n📞 Support"
-var msg = "welcome"
-Bot.sendKeyboard(button, msg)
+Bot.sendKeyboard(button, welcome_msg)
+

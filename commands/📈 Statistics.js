@@ -16,6 +16,6 @@ Bot.sendMessage(
     User.value() +
     " Users\n\n➕ Total Withdraw : " +
     withdraw.value() +
-    " Points*\n\n 🌟[Dev Bikini](https://t.me/DevBikini)",
+    " Users*\n\n 🌟[Dev Bikini](https://t.me/DevBikini)",
   { disable_web_page_preview: true }
 )
