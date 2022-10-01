@@ -18,4 +18,6 @@ Api.sendMessage({
     message,
   parse_mode: "html"
 })
+Bot.sendMessage("*Message was sended successfully*")
 Api.deleteMessage({ message_id: options.del })
+

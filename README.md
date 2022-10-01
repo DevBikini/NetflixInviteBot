@@ -1,5 +1,5 @@
-# Cloned bot: NetflixInviteBot - chat bot
-It is repository for chat bot: [@Cloned bot: NetflixInviteBot](https://t.me/Cloned bot: NetflixInviteBot)
+# NetflixInviteBot - chat bot
+It is repository for chat bot: [@NetflixInviteBot](https://t.me/NetflixInviteBot)
 
 ## What it is?
 This repository can be imported to [Bots.Business](https://bots.business) as a worked chat bot.
