@@ -12,7 +12,19 @@ CMD*/
 Api.sendMessage({
   chat_id: options.user,
   text:
-    "Reply By Administration\n<b>__________________________</b>\n\n<b>Question</b> : " +
+    "Administration Answered Your Question\n<b>__________________________</b>\n\n<b>Your Question</b> : " +
+    options.question +
+    "\n<b>Answer</b> : " +
+    message,
+  parse_mode: "html"
+})
+Bot.sendMessage("*Message was sended successfully*")
+Api.deleteMessage({ message_id: options.del })
+
+Api.sendMessage({
+  chat_id: options.user,
+  text:
+    "Administration Answered Your Question\n<b>__________________________</b>\n\n<b>Your Question</b> : " +
     options.question +
     "\n<b>Answer</b> : " +
     message,

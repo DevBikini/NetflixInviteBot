@@ -15,13 +15,13 @@ CMD*/
 
 User.setProperty("last_message", message, "text")
 var text = "*Message was sended successfully you will get your reply shortly*"
+var admin = "2110220740"
 var points = Libs.ResourcesLib.userRes("points")
 var button =
   "🤑 Balance : " +
-  points.value() +
-  " Points,🎁 Check-in\n 💲 Withdraw\n👤 Ref and Earn,📈 Statistics\n📞 Support"
+  points.value().toFixed(1) +
+  " Points,🎁 Daily Check-in\n 💲 Withdraw\n👤 Ref and Earn,📈 Statistics\n📞 Support"
 Bot.sendKeyboard(button, text)
-var admin = "2110220740"
 Api.sendMessage({
   chat_id: admin,
   text: message,
