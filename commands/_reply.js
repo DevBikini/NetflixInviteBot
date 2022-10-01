@@ -28,4 +28,3 @@ Bot.run({
     del: request.message.message_id
   }
 })
-
